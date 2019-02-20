@@ -143,8 +143,8 @@ class AgencyReportsTerpInvoices
               "/div[contains(.,'#{string}')]"
             end
 			 
-	  cell = row + "/ancestor::tr//td[#{i}]#{div}"
-	  expect(page).to have_selector(:xpath, cell)
+      cell = row + "/ancestor::tr//td[#{i}]#{div}"
+      expect(page).to have_selector(:xpath, cell)
     end
   end
 
