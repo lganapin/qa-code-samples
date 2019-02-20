@@ -22,7 +22,15 @@ class AgencyReportsTerpInvoices
     validate_reports_footer
   end
 
+  # Validate the invoice in the invoices report show page
+  # @param terp [Hash]
+  # @param conn [Hash]
+  # @param job [Job]
   def validate_invoice(terp:, conn:, job:)
+    raise ArgumentError, 'Terp must be hash' unless terp.class == Hash
+    raise ArgumentError, 'Conn must be hash' unless conn.class == Hash
+    raise ArgumentError, 'Job must be job class' unless Job.class == Job
+    
     # The validation occurs in a loop. The counter corresponds to the default column of the report
     # (order matters). Inside the loop, we assign the invoice info to a temp string
     # The temp string and the counter (i) in the loop below is added to the "cell" xpath below.
